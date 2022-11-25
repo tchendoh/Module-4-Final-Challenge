@@ -17,16 +17,12 @@ struct BookList: View {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 30) {
                     ForEach(model.books) { book in
-                        NavigationLink(value: book ) {
+                        NavigationLink(destination: BookDetails(book: book) ) {
                             BookCard(book: book)
                                 .padding(20)
                         }
                     }
                     .navigationTitle("Ma bibliothèque")
-                    .navigationDestination(for: Book.self) { book in
-                        BookDetails(book: book)
-                        
-                    }
                 }
             }
         }
